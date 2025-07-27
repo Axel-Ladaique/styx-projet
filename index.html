@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Choix d'un trajet</title>
+</head>
+<body>
+    <h1>Choisir un trajet</h1>
+
+    <!-- Liste déroulante -->
+    <select id="csvSelector">
+        <option value="">-- Sélectionnez un trajet --</option>
+    </select>
+
+    <pre id="csvContent">Le contenu du CSV apparaîtra ici...</pre>
+
+    <script>
+        const AVAILABLE_CSV_FILES = [
+            'Trajet_1_Parc_de_Saint_Cloud.csv',
+            'Trajet_2_Ville_d_Avray_et_foret.csv'
+        ];
+        const BASE_URL = 'https://axel-ladaique.github.io/styx-projet/data_site/';
+
+        // Remplir la liste déroulante
+        const selector = document.getElementById('csvSelector');
+        AVAILABLE_CSV_FILES.forEach(file => {
+            const option = document.createElement('option');
+            option.value = file;
+            option.textContent = file.replace(/_/g, ' ').replace('.csv', '');
+            selector.appendChild(option);
+        });
+
+        // Quand l'utilisateur choisit un fichier
+        selector.addEventListener('change', () => {
+            const file = selector.value;
+            if (!file) return;
+            fetch(BASE_URL + file)
+                .then(response => response.text())
+                .then(csvData => {
+                    document.getElementById('csvContent').textContent = csvData;
+                })
+                .catch(err => console.error("Erreur de chargement :", err));
+        });
+    </script>
+</body>
+</html>
