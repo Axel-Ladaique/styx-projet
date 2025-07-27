@@ -1,8 +1,5 @@
 const AVAILABLE_CSV_FILES = [
-    'data1.csv',
-    'data2.csv', 
-    'trajet1.csv',
-    'trajet2.csv',
-    'exemple.csv'
+    'Trajet_1_Parc_de_Saint_Cloud.csv',
+    'Trajet_2_Ville_d'Avray_et_forêt.csv', 
     // Ajoutez ici vos vrais noms de fichiers
 ];
