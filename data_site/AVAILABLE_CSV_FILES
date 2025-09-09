@@ -1,5 +1,6 @@
 const AVAILABLE_CSV_FILES = [
     'Trajet_1_Parc_de_Saint_Cloud.csv',
     'Trajet_2_Ville_d Avray_et_foret.csv',
+    'Trajet_3_Fort_dénivelé_(Rue_des_Gâte_Ceps).csv'
     // Ajoutez ici vos vrais noms de fichiers
 ];
